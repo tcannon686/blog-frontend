@@ -1,0 +1,43 @@
+label {
+  width: 16%;
+  display: inline-block;
+}
+
+input {
+  width: 82%;
+}
+
+button {
+  width: 50%;
+}
+
+form {
+  width: 512px;
+  margin: auto;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #aaaaaa;
+  background: #ffffff;
+  text-align: left;
+}
+
+h1 {
+  text-align: center;
+}
+
+.failure {
+  background-color: #ffaaaa;
+  border: 1px solid #ff0000;
+  text-align: center;
+  margin-top: 8px;
+  border-radius: 8px;
+}
+
+.success {
+  background-color: #aaffaa;
+  border: 1px solid #00ff00;
+  text-align: center;
+  margin-top: 8px;
+  border-radius: 8px;
+}
+

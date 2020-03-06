@@ -1,0 +1,30 @@
+<div class="post">
+  <a class="username" routerLink="/blogs/{{post.user}}"><b>{{post.user}}</b></a><br>
+  <a class="date">{{post.date | date: 'medium'}}</a>
+  <p *ngIf="!isEditing">
+    {{post.text}}
+  </p>
+  <app-post-editor *ngIf="isEditing"
+    [postToEdit]="post"
+    (postPublished)="onPostEdited($event)">
+  </app-post-editor>
+  <div>
+    <button *ngIf="canUserComment" (click)="onCommentButtonClicked()">
+      Comment
+    </button>
+    <button *ngIf="canUserEdit" (click)="onEditButtonClicked()">
+      Edit
+    </button>
+    <button *ngIf="canUserEdit" (click)="onDeleteButtonClicked()">
+      Delete
+    </button>
+  </div>
+  <div *ngFor="let comment of post.comments">
+    <app-post [post]="comment" (postDeleted)="onPostDeleted($event)"></app-post>
+  </div>
+  <div *ngIf="isUserCommenting">
+    <app-post-editor
+      [responseTo]="post"
+      (postPublished)="onPostPublished($event)"></app-post-editor>
+  </div>
+</div>

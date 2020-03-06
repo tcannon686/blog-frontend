@@ -1,0 +1,11 @@
+<div>
+  <h1> Welcome! </h1>
+  <p> Welcome to the blogs page! Click on a blog below to visit it. </p>
+  <ul *ngFor="let blog of blogs | async">
+    <li>
+      <a routerLink="/blogs/{{blog.name}}">
+        {{ blog.name }}'s blog
+      </a>
+    </li>
+  </ul>
+</div>

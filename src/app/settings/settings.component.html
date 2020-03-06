@@ -1,0 +1,23 @@
+<form #settingsForm="ngForm" (submit)="onSubmit()">
+  <h1> Account Settings </h1>
+  <div *ngIf="username">
+    <p> Use this menu to change settings for {{ username }}. </p>
+    <p>
+      <label for="email">Email</label>
+      <input id="email" type="text" [(ngModel)]="model.email" name="email">
+    </p>
+    <button type="button"
+      (click)="onLogoutClicked()">Sign out</button>
+    <button class="signIn" type="submit"
+      [disabled]="!settingsForm.form.valid">Update settings</button>
+    <div class="success" *ngIf="showMessage && success">
+      <p> {{ message }} </p>
+    </div>
+    <div class="failure" *ngIf="showMessage && !success">
+      <p> {{ message }} </p>
+    </div>
+  </div>
+  <div *ngIf="!username">
+    <p> No user logged in! </p>
+  </div>
+</form>

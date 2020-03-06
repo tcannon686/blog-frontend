@@ -1,0 +1,11 @@
+<div class="feed" >
+  <div class="post" *ngIf="canPost | async">
+    <app-post-editor
+      (postPublished)="onPostPublished($event)">
+    </app-post-editor>
+  </div>
+  <div *ngFor="let post of posts">
+    <app-post [post]="post" (postDeleted)="onPostDeleted($event)">
+    </app-post>
+  </div>
+</div>

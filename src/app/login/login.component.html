@@ -1,0 +1,20 @@
+<form #loginForm="ngForm" (submit)="onSubmit()">
+  <h1> Sign In </h1>
+  <p><label for="password">Username</label>
+  <input id="username" type="text"
+    required [(ngModel)]="model.username" name="username"></p>
+  <p><label for="password">Password</label>
+  <input id="password" type="password"
+    required [(ngModel)]="model.password" name="password"></p>
+  <button class="createAccount" type="button"
+    [disabled]="!loginForm.form.valid"
+    (click)="onCreateAccountClicked()">Create account</button>
+  <button class="signIn" type="submit"
+    [disabled]="!loginForm.form.valid">Sign in</button>
+  <div class="success" *ngIf="showMessage && success">
+    <p> {{ message }} </p>
+  </div>
+  <div class="failure" *ngIf="showMessage && !success">
+    <p> {{ message }} </p>
+  </div>
+</form>

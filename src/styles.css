@@ -1,1 +1,82 @@
 /* You can add global styles to this file, and also import other style files */
+body
+{
+  background: #eeeeee;
+  font-family: 'Roboto', sans-serif;
+}
+
+button {
+  font-style: bold;
+  font-size: small;
+  color: #777777;
+  border: none;
+  background-color: #ffffff;
+  border-radius: 4px;
+  width: 33%;
+  height: 24px;
+}
+
+button:hover {
+  background-color: #eeeeee;
+}
+
+button[disabled] {
+  border: 1px solid #eeeeee;
+  background: #ffffff;
+}
+
+button[disabled].hover {
+  border: 1px solid #eeeeee;
+  background: #ffffff;
+}
+
+button[type="submit"]
+{
+  background-color: #aa0044;
+  width: 50%;
+  color: #ffffff;
+}
+
+button[type="submit"][disabled]
+{
+  background-color: #ffffff;
+  border: 1px solid #aa0044;
+  color: #aa0044;
+}
+
+button[type="submit"][disabled]:hover
+{
+  background-color: #ffffff;
+  border: 1px solid #aa0044;
+  color: #aa0044;
+}
+
+button[type="submit"]:hover
+{
+  background-color: #cc0066;
+}
+
+input.ng-invalid.ng-touched
+{
+  border: 1px solid #ff0000;
+}
+
+div.post {
+  /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);*/
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+  border: 1px solid #aaaaaa;
+  background: #ffffff;
+  text-align: left;
+}
+
+input {
+  font-family: 'Roboto', sans-serif;
+  color: #000000;
+}
+
+input[type="text"], input[type="password"] {
+  border: 1px solid #aaaaaa;
+  border-radius: 4px;
+}
