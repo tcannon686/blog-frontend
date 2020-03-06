@@ -39,30 +39,30 @@ export class SettingsComponent implements OnInit {
   onLogoutClicked(): void {
     /* Logout and navigate to the homepage. */
     this.service.logout();
-    this.router.navigate(["/"]);
+    this.router.navigate(['/']);
   }
 
   onSubmit(): void {
     this.service.updateUserSettings(this.model)
       .subscribe(
         (result) => {
-          if(result) {
+          if (result) {
             this.success = true;
-            this.message = "Updated settings!";
+            this.message = 'Updated settings!';
             this.showMessage = true;
           } else {
             this.success = false;
-            this.message = "Failed to update settings!";
+            this.message = 'Failed to update settings!';
             this.showMessage = true;
           }
         },
         (err) => {
           this.success = false;
-          this.message = "Failed to update settings!";
+          this.message = 'Failed to update settings!';
           this.showMessage = true;
           console.error(err);
         },
-        () => {})
+        () => {});
   }
 
 }

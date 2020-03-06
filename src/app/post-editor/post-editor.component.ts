@@ -29,45 +29,47 @@ export class PostEditorComponent implements AfterViewInit {
   ) { }
 
   ngAfterViewInit(): void {
-    if(this.postToEdit)
+    if (this.postToEdit) {
       this.textArea.nativeElement.value = this.postToEdit.text;
+    }
   }
 
   onPublishButtonClicked(): void {
     const text: string = this.textArea.nativeElement.value;
-    this.textArea.nativeElement.value = "";
+    this.textArea.nativeElement.value = '';
     /* If editing a post, update the post. */
-    if(this.postToEdit)
+    if (this.postToEdit) {
       this.service.editPost(this.postToEdit._id, text)
         .subscribe(
           (post) => {
             /* Overwrite the post with the freshly edited post. */
-            if(post) {
+            if (post) {
               Object.assign(this.postToEdit, post);
-              this.postPublished.emit(post)
+              this.postPublished.emit(post);
             }
           },
-          (err) => console.error("Backend error:", err),
+          (err) => console.error('Backend error:', err),
           () => {});
-    /* If commenting on a post, create a post commenting to it. */
-    else if(this.responseTo)
+    } else if (this.responseTo) {
       this.service.createPost(this.responseTo._id, text)
         .subscribe(
           (post) => {
-            if(post)
-              this.postPublished.emit(post)
+            if (post) {
+              this.postPublished.emit(post);
+            }
           },
-          (err) => console.error("Backend error:", err),
+          (err) => console.error('Backend error:', err),
           () => {});
-    /* Otherwise we are just creating a regular post. */
-    else
+    } else {
       this.service.createPost(null, text)
         .subscribe(
           (post) => {
-            if(post)
-              this.postPublished.emit(post)
+            if (post) {
+              this.postPublished.emit(post);
+            }
           },
-          (err) => console.error("Backend error:", err),
+          (err) => console.error('Backend error:', err),
           () => {});
+    }
   }
 }

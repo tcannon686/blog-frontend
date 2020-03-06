@@ -15,10 +15,10 @@ import { LoginComponent } from './login/login.component';
 import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
-  { path: "blogs/:user", component: PostFeedComponent },
-  { path: "login", component: LoginComponent },
-  { path: "settings", component: SettingsComponent },
-  { path: "", component: WelcomeComponent }
+  { path: 'blogs/:user', component: PostFeedComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'settings', component: SettingsComponent },
+  { path: '', component: WelcomeComponent }
 ];
 
 @NgModule({
